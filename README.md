@@ -43,3 +43,5 @@ For windows, you use <Winsock2.h>. You'll also need to link against Ws2_32.lib a
 ## Acknowledgments:
 * ACM IIT Roorkee Student Chapter
 * https://stackoverflow.com/questions/22432910/makefile-error-sys-socket-h-no-such-file-or-directory-under-windows
+* https://www.geeksforgeeks.org/tcp-server-client-implementation-in-c/
+* https://www.geeksforgeeks.org/udp-server-client-implementation-c/
