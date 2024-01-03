@@ -9,11 +9,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true
 
     # Optionally generate compile_commands.json
 
     - uses: ZedThree/clang-tidy-review@v0.14.0
       id: review
+      with:
+        clang_tidy_checks: '-*,bugprone-*,cppcoreguidelines-*,modernize-*,concurrency-*'
 
     # Uploads an artefact containing clang_fixes.json
     - uses: ZedThree/clang-tidy-review/upload@v0.14.0
