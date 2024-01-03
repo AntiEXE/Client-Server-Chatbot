@@ -3,6 +3,10 @@ name: clang-tidy-review
 # You can be more specific, but it currently only works on pull requests
 on: [pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   review:
     runs-on: ubuntu-latest
@@ -18,7 +22,7 @@ jobs:
       id: review
       with:
         clang_tidy_checks: '-*,bugprone-*,cppcoreguidelines-*,modernize-*,concurrency-*'
-        apt_packages: "libfftw3-dev,libnetcdf-c++4-dev,libopenmpi-dev,petsc-dev,slepc-dev,liblapack-dev,libparpack2-dev,libsundials-dev,uuid-dev,python3-cmake"
+        apt_packages: "libfftw3-dev,libnetcdf-c++4-dev,libopenmpi-dev,petsc-dev,slepc-dev,liblapack-dev,libparpack2-dev,libsundials-dev,uuid-dev"
         #build_dir: build
         #config_file: ".clang-tidy"
         cmake_command: pip install cmake
