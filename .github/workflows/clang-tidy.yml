@@ -25,7 +25,9 @@ jobs:
         #apt_packages: "libfftw3-dev,libnetcdf-c++4-dev,libopenmpi-dev,petsc-dev,slepc-dev,liblapack-dev,libparpack2-dev,libsundials-dev,uuid-dev"
         #build_dir: build
         #config_file: ".clang-tidy"
-        cmake_command: cmake --version
+        cmake_command: |
+          cmake --version && \
+          git config --global --add safe.directory "$GITHUB_WORKSPACE" 
 
     # Uploads an artefact containing clang_fixes.json
     - uses: ZedThree/clang-tidy-review/upload@v0.14.0
