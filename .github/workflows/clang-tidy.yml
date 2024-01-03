@@ -20,10 +20,7 @@ jobs:
         clang_tidy_checks: '-*,bugprone-*,cppcoreguidelines-*,modernize-*,concurrency-*'
         #build_dir: build
         #config_file: ".clang-tidy"
-        cmake_command: |
-            pip install cmake && \
-            cmake --version && \
-            git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        cmake_command: pip install cmake
 
     # Uploads an artefact containing clang_fixes.json
     - uses: ZedThree/clang-tidy-review/upload@v0.14.0
